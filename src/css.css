@@ -1,0 +1,11 @@
+.error {
+    color: red;
+}
+.cat-info {
+    display: flex;
+    margin-top: 30px;
+    
+}
+.text-content {
+    margin-left: 40px;
+}
