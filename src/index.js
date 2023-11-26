@@ -1,5 +1,4 @@
-// import axios from "axios";
-// axios.defaults.headers.common['x-api-key'] = 'live_Y4i6k17T2ZTgO1C7IOAKguuc1gQHBAjRQwY8e4x2AhZlbXsNCyDFTTw1CCuM3Skc';
+
 
 import Notiflix from 'notiflix';
 import { fetchCats, fetchCatByBreed } from './cat-api.js'
@@ -41,12 +40,12 @@ function renderCats(cats) {
 
 //EVENT
 
-refs.selectField.addEventListener("input", test)
+refs.selectField.addEventListener("input", displayCat)
 
 
-function test() {
+function displayCat() {
   refs.loader.hidden = false;
-  refs.catInfo.hidden = true;
+  refs.catInfo.style.visibility = 'hidden';   
   fetchCatByBreed(refs.selectField.value)
     .then(cat => {
 
@@ -61,7 +60,8 @@ function test() {
 }
 
 function renderCat(cat) {
-  refs.catInfo.textContent = '';
+ refs.catInfo.textContent = '';
+ refs.catInfo.style.visibility = 'visible'; 
   refs.catInfo.hidden = false;
   refs.loader.hidden = true;
   const catMarkup = `<img width='500' height='500' src="${cat[0].url}"/>
